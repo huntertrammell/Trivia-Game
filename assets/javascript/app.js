@@ -13,6 +13,8 @@ var triviaQuestion = [
     //https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
     correctAnswer: "B: Kal-el is Supermans real name, Clark Kent was given too him by his earth parents when they found him on the ground in Kansas.",
 }];
+
+//https://opentdb.com/api.php?amount=9&category=29&difficulty=easy
 console.log(triviaQuestion[0].correctAnswer)
 //Create function that will generate question into the htmlcard.
 //Create function that will determine what match button value to variable.
