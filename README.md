@@ -10,11 +10,12 @@ After clicking user will be notified if answer is correct.
     If Correct/Incorrect, user will be greeted with a win/loss message and the answer explanation will be shown. 
     A variable will hold the score until end of game and reveal in a stats summary with option to play again.
 
+Assets used in this project have been modified from their original verison to fit this applicaiton. The rights reside with the respective artists.
+
 Sources used for research on animations, styling, and logic are included in comments but a list of all sources used can be found here with there corresponding doc & line number:
 
 JS-10-https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
 
-
-Assets used in this project have been modified from their original verison to fit this applicaiton. The rights reside with the respective artists.
+JS-03-https://www.sitepoint.com/simple-javascript-quiz/
 
 Thank you for playing!
