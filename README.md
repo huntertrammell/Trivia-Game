@@ -1,21 +1,21 @@
 # Trivia-Game
-A timed trivia game that will provide as many questions as the user can answer within specified time frame. The purpose of this game is to show how I can handle using setTimeout() events in js and also showcases some delicious css styling and animations - both hand-rolled and using Bootstrap. The page will keep track of wins v. losses without refreshing the page.
+A timed trivia game that will provide a set amount of questions for the user to answer within specified time frame. The purpose of this game is to show how I can handle using API's, jQuery DOM manipulation, setTimeout() events in JavaScript, and also showcases some delicious CSS styling and animations - both hand-rolled and using Bootstrap. The page will keep track of wins v. losses without refreshing the page.
 
-To begin player will select `Play` and needs to answer as many questions as they can before time runs out (clock time has been extended to compensate for animations).
+To begin player will select `Play` and has to answer a set amount of questions within the time frame specified on the card.
 
-User cannot change answer after selecting so they will need to think fast and decide on a proper answer before clicking.
+Once timer runs out, the choice that is selected will be taken as user input.
 
-After clicking user will be notified if answer is correct.
-
-    If Correct/Incorrect, user will be greeted with a win/loss message and the answer explanation will be shown. 
+    If Correct/Incorrect, user will be greeted with a win/loss message and the answer will be shown. 
     A variable will hold the score until end of game and reveal in a stats summary with option to play again.
 
-Assets used in this project have been modified from their original verison to fit this applicaiton. The rights reside with the respective artists.
+Assets used in this project have been modified from their original version to fit this application. The rights reside with the respective artists.
 
-Sources used for research on animations, styling, and logic are included in comments but a list of all sources used can be found here with there corresponding doc & line number:
+Sources used for research on animations, styling, API's, and logic are included in comments but a list of all sources used can be found here:
 
-JS-10-https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
+https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
 
-JS-03-https://www.sitepoint.com/simple-javascript-quiz/
+https://www.sitepoint.com/simple-javascript-quiz/
+
+https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
 
 Thank you for playing!
