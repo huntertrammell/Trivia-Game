@@ -12,9 +12,8 @@ After clicking user will be notified if answer is correct.
 
 Sources used for research on animations, styling, and logic are included in comments but a list of all sources used can be found here with there corresponding doc & line number:
 
-    HTML - XX - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    CSS - XX - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    JS - XX - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+JS-10-https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
+
 
 Assets used in this project have been modified from their original verison to fit this applicaiton. The rights reside with the respective artists.
 
