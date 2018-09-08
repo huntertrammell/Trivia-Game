@@ -7,7 +7,8 @@ User cannot change answer after selecting so they will need to think fast and de
 
 After clicking user will be notified if answer is correct.
 
-    If Correct/Incorrect, user will be greeted with a win/loss message and the answer explanation will be shown. A variable will hold the score until end of game and reveal in a stats summary with option to play again.
+    If Correct/Incorrect, user will be greeted with a win/loss message and the answer explanation will be shown. 
+    A variable will hold the score until end of game and reveal in a stats summary with option to play again.
 
 Sources used for research on animations, styling, and logic are included in comments but a list of all sources used can be found here with there corresponding doc & line number:
 
