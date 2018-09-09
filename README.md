@@ -18,4 +18,6 @@ https://www.sitepoint.com/simple-javascript-quiz/
 
 https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
 
+assets including .psd files can be found here: https://1drv.ms/f/s!AsxElX-1M9-f-iOR3oCliAzBxGoT
+
 Thank you for playing!
