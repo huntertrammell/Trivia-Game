@@ -7,9 +7,57 @@ ul {
     text-align: left;
 }
 
-.container {
-    position: fixed;
+.imgDiv {
+    position: relative;
+}
+
+.ms-icon-1 {
+    height: 30.266px;
+    width: 32px;
+    float: right;
+    position: absolute; 
+    right: 0px;
+    bottom: 4px;
+}
+
+.program {
+    float: left;
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+    color: #ece9d8;
+    font-size: xx-small;
+}
+
+#logo {
+    width: 90%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: relative;
+    z-index: 2;
+}
+
+#scoreDiv {
     top: 50%;
     left: 50%;
+    position: relative;
     transform: translate(-50%, -50%);
+    width: 60%;
+    color: #282828;
+    font-family: 'Press Start 2P', cursive;
+    background: #ece9d8;
+    border: #0055e5 solid 4px;
+    border-top: #0055e5 36px solid;
+}
+
+#questionDiv {
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    color: #33ff00;
+    font-family: 'Press Start 2P', cursive;
+    background: #282828;
+    border: #ece9d8 solid 4px;
+    padding-bottom: 0%;
 }
