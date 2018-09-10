@@ -1,28 +1,72 @@
 
 //Create variables to house data
 var queryURL = "https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple"
+var triviaQuestion;
+var triviaAnswer;
+var a;
+var b;
+var c;
+var d;
 
+//Hides radio buttons until BEGIN button pressed
+$(document).ready(function() {
+  $('.gameBegin').hide();
+})
+//hides intro and populates buttons on screen
+$('#btn').click(function() {
+  $('#start').hide();
+  $('.gameBegin').show();
+  run();
+})
 //Create ajax function to get question and formulate answers
 //https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
 $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    var question = response.results[0].question;
+    var question = response.results[0].question
     var choices = [response.results[0].incorrect_answers[0], response.results[0].incorrect_answers[1], response.results[0].incorrect_answers[2], response.results[0].correct_answer]
-    var answer = choices.indexOf(response.results[0].correct_answer);
+    var answer = choices.indexOf(response.results[0].correct_answer)
     console.log(question);
     console.log(choices);
     console.log(answer);
-  });
+    //shuffle choice array
+    shuffle(choices);
+    function shuffle(choices) {
+        for(var j, x, i = choices.length; i; j = parseInt(Math.random() * i), x = choices[--i], choices[i] = choices[j], choices[j] = x);
+        return choices;
+    }
+    //need to review AJAX issues, will create rest of game using place holder text then swap out with AJAX once done
+   /* $('#question').text(question);
+    $('#a').text(choices[0]);
+    $('#b').text(choices[1]);
+    $('#c').text(choices[2]);
+    $('#b').text(choices[3]); */
+  })
+  
 
 //Create timer that will determine how long a question can be present before showing answer.
+var number = 30;
+var intervalId;
 
-//Create function to decide wether question is correct or incorrect.
+function decrement(){
+  number--;
+  $("#timer").text(`:${number}`);
+  if (number === 0) {
+    stop();
+  }
+  if (number < 10) {
+    $("#timer").text(`:0${number}`);
+  }
+}
+function run(){
+  intervalId = setInterval(decrement, 1000);
+}
+function stop(){
+  clearInterval(intervalId);
+}
+//create function for shuffling array from API
 
-//Create function that shuffles choices array
-
-//Push data into HTML
 
 //Create function that shows user if answer is correct or incorrect
 //Create function that adds a counter to correct v incorrect questions.

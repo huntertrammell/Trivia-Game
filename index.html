@@ -26,7 +26,7 @@
                     <img class="ms-icon-1" src="assets/images/x-button.png" alt="X">
                 </div>
                 <div class="card-body">
-                    <h2 id="timer" class="card-title">:00</h2>
+                    <h2 id="timer" class="card-title">:30</h2>
                     <div class="row text-center">
                         <div class="col">
                             <h6>Wins</h6>
@@ -56,20 +56,20 @@
                 <div class="card-body">
                     <h5 id="question" class="card-text"></h5>
                     <h6 id="correctAnswer" class="card-text"></h6>
-                    <div id="gameStart">
+                    <div id="start">
                         <h5 class="card-text">Press 'BEGIN' to start the game.</h5>
                         <p class="card-text"> You will have :30 to answer each question. Whatever you have selected once the timer runs out is your answer. The correct answer will be revealed and another will appear after a moment.</p>
                         <br>
                         <p class="card-text">Good Luck!</p>
                         <br>
-                        <button>BEGIN</button>
+                        <button id="btn">BEGIN</button>
                     </div>
-                    <ul>
-                        <li id="a"></li>
-                        <li id="b"></li>
-                        <li id="c"></li>
-                        <li id="d"></li>
-                    </ul>
+                    <form id="answer" class="gameBegin">
+                        <input type="radio" name="answer" value="a"><span id="a"></span><br>
+                        <input type="radio" name="answer" value="b"><span id="b"></span><br>
+                        <input type="radio" name="answer" value="c"><span id="c"></span><br>
+                        <input type="radio" name="answer" value="d"><span id="d"></span><br>
+                    </form>
                 </div>
             </div>
         </div>
