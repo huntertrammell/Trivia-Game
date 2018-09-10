@@ -1,14 +1,18 @@
 //Create variables to house data
 var qArr = [
 q1 = {
+  //question to be displayed
   question:"What is the name of the Princess that Mario and friends are constantly having to save from Bowser?",
+  //possible answers
   correctAnswer:"Princess Peach",
   incorrectAnswers: {
     choiceOne: "Waluigi",
     choiceTwo: "Meghan Markle",
     choiceThree: "Princess Zelda",
   },
+  //provides answer explanation or comment
   answerComment:"You'd think she would have learned after her first run in with everyone's favorite spikey turtle-dragon",
+  //shown when Clippy is clicked during game
   hint:"WAAAA! - Waluigi's response when he heard he wasnt the answer",
 },
 q2 = {
@@ -30,7 +34,7 @@ q3 = {
     choiceTwo: "Simpleton",
     choiceThree: "Simpsons",
   },
-  answerComment:"",
+  answerComment:"Simlish is a 'language' made up of gibberish words that can be translated to phrases",
   hint:"'Ahhhh Molombia' - Roughly translated to 'This one I don't know'",
 },
 q4 = {
@@ -111,7 +115,7 @@ q10 = {
   hint:"You should try substituting Stevia for sugar in your tea!",
 }]
 console.log(qArr)
-var number = 15;
+var number = 10;
 var intervalId;
 //Hides radio buttons until BEGIN button pressed
 $(document).ready(function() {
@@ -132,7 +136,7 @@ $('#btn').click(function() {
     $('#a, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[0].answerComment)
     stop();
-  }, 15000)
+  }, 10000)
   setTimeout(function(){
   $('#question').text(qArr[1].question);
   $('#c').text(qArr[1].incorrectAnswers.choiceOne);
@@ -141,14 +145,14 @@ $('#btn').click(function() {
   $('#d').text(qArr[1].incorrectAnswers.choiceThree);
   $('#a, #b, #d').removeClass('text-danger')
   $('#correctAnswer').text('')
-  $('#timer').text(':15')
+  $('#timer').text(':10')
   run();
-  }, 18000)
+  }, 14000)
   setTimeout(function(){
     $('#c, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[1].answerComment)
     stop();
-  }, 33000)
+  }, 24000)
   setTimeout(function(){
     $('#question').text(qArr[2].question);
     $('#c').text(qArr[2].incorrectAnswers.choiceOne);
@@ -157,21 +161,141 @@ $('#btn').click(function() {
     $('#d').text(qArr[2].incorrectAnswers.choiceThree);
     $('#c, #b, #d').removeClass('text-danger')
     $('#correctAnswer').text('')
-    $('#timer').text(':15')
+    $('#timer').text(':10')
     run();
-    }, 36000)
+    }, 28000)
   setTimeout(function(){
     $('#c, #a, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[2].answerComment)
     stop();
-  }, 51000)
-  
+  }, 38000)
+  setTimeout(function(){
+    $('#question').text(qArr[3].question);
+    $('#c').text(qArr[3].incorrectAnswers.choiceOne);
+    $('#b').text(qArr[3].incorrectAnswers.choiceTwo);
+    $('#a').text(qArr[3].correctAnswer);
+    $('#d').text(qArr[3].incorrectAnswers.choiceThree);
+    $('#c, #a, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 42000)
+  setTimeout(function(){
+    $('#c, #b, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[3].answerComment)
+    stop();
+  }, 52000)
+  setTimeout(function(){
+    $('#question').text(qArr[4].question);
+    $('#c').text(qArr[4].incorrectAnswers.choiceOne);
+    $('#b').text(qArr[4].incorrectAnswers.choiceTwo);
+    $('#d').text(qArr[4].correctAnswer);
+    $('#a').text(qArr[4].incorrectAnswers.choiceThree);
+    $('#c, #b, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 56000)
+  setTimeout(function(){
+    $('#c, #b, #a').addClass('text-danger')
+    $('#correctAnswer').text(qArr[4].answerComment)
+    stop();
+  }, 66000)
+  setTimeout(function(){
+    $('#question').text(qArr[5].question);
+    $('#c').text(qArr[5].incorrectAnswers.choiceOne);
+    $('#b').text(qArr[5].incorrectAnswers.choiceTwo);
+    $('#d').text(qArr[5].correctAnswer);
+    $('#a').text(qArr[5].incorrectAnswers.choiceThree);
+    $('#c, #b, #a').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 70000)
+  setTimeout(function(){
+    $('#c, #b, #a').addClass('text-danger')
+    $('#correctAnswer').text(qArr[5].answerComment)
+    stop();
+  }, 80000)
+  setTimeout(function(){
+    $('#question').text(qArr[6].question);
+    $('#c').text(qArr[6].incorrectAnswers.choiceOne);
+    $('#b').text(qArr[6].incorrectAnswers.choiceTwo);
+    $('#a').text(qArr[6].correctAnswer);
+    $('#d').text(qArr[6].incorrectAnswers.choiceThree);
+    $('#c, #b, #a').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 84000)
+  setTimeout(function(){
+    $('#c, #b, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[6].answerComment)
+    stop();
+  }, 94000)
+  setTimeout(function(){
+    $('#question').text(qArr[7].question);
+    $('#a').text(qArr[7].incorrectAnswers.choiceOne);
+    $('#b').text(qArr[7].incorrectAnswers.choiceTwo);
+    $('#c').text(qArr[7].correctAnswer);
+    $('#d').text(qArr[7].incorrectAnswers.choiceThree);
+    $('#c, #b, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 98000)
+  setTimeout(function(){
+    $('#a, #b, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[7].answerComment)
+    stop();
+  }, 108000)
+  setTimeout(function(){
+    $('#question').text(qArr[8].question);
+    $('#c').text(qArr[8].incorrectAnswers.choiceOne);
+    $('#a').text(qArr[8].incorrectAnswers.choiceTwo);
+    $('#b').text(qArr[8].correctAnswer);
+    $('#d').text(qArr[8].incorrectAnswers.choiceThree);
+    $('#a, #b, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 112000)
+  setTimeout(function(){
+    $('#c, #a, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[8].answerComment)
+    stop();
+  }, 122000)
+  setTimeout(function(){
+    $('#question').text(qArr[9].question);
+    $('#c').text(qArr[9].incorrectAnswers.choiceOne);
+    $('#a').text(qArr[9].incorrectAnswers.choiceTwo);
+    $('#d').text(qArr[9].correctAnswer);
+    $('#b').text(qArr[9].incorrectAnswers.choiceThree);
+    $('#a, #c, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':10')
+    run();
+    }, 124000)
+  setTimeout(function(){
+    $('#c, #a, #b').addClass('text-danger')
+    $('#correctAnswer').text(qArr[9].answerComment)
+    stop();
+  }, 134000)
   //master set timeout function for total game duration 
+  setTimeout(function(){
+    reset()
+  }, 144000)
+
 })
 
-//Create timer that will count down from 30 and push to scoreboard
-
-
+//functions
+function reset(){
+  $('#a, #b, #c, #d').removeClass('text-danger')
+  $('#question').text('')
+  $('#correctAnswer').text('')
+  $('.gameBegin').hide()
+  $('#start').show()
+}
 function decrement(){
   number--;
   $("#timer").text(`:${number}`);
@@ -187,7 +311,7 @@ function run(){
 }
 function stop(){
   clearInterval(intervalId);
-  number=15
+  number=10
   $("#timer").text(':00')
 }
 function shuffle(qArr) {
@@ -204,6 +328,7 @@ function shuffle(qArr) {
   -CSS animation triggers
 3-animate objects on hover
 4-customize radio buttons - past making them bigger
+5-Add BSOD with rebooting in... using jquery/timeouts at end of game during reset function
 */
 
 /*//attempted to incorporate API into this to gen questions, but could not get around asyncronous uploading. Will try to revisit later
