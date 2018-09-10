@@ -2,7 +2,7 @@
 var qArr = [
 q1 = {
   question:"What is the name of the Princess that Mario and friends are constantly having to save from Bowser?",
-  CorrectAnswer:"Princess Peach",
+  correctAnswer:"Princess Peach",
   incorrectAnswers: {
     choiceOne: "Waluigi",
     choiceTwo: "Meghan Markle",
@@ -13,7 +13,7 @@ q1 = {
 },
 q2 = {
   question:"What PC game release date was delayed due to a hidden picture of a developers buttocks?",
-  CorrectAnswer:"Halo 2",
+  correctAnswer:"Halo 2",
   incorrectAnswers: {
     choiceOne: "Nintendogs",
     choiceTwo: "GTA IV",
@@ -24,7 +24,7 @@ q2 = {
 },
 q3 = {
   question:"In what language to the Sim's speak in?",
-  CorrectAnswer:"Simlish",
+  correctAnswer:"Simlish",
   incorrectAnswers: {
     choiceOne: "Simanese",
     choiceTwo: "Simpleton",
@@ -35,7 +35,7 @@ q3 = {
 },
 q4 = {
   question:"In the game series 'Mass Effect', what lovable Turian seems to always be too busy to talk?",
-  CorrectAnswer:"Garrus",
+  correctAnswer:"Garrus",
   incorrectAnswers: {
     choiceOne: "Tali",
     choiceTwo: "Nien Nunb",
@@ -46,7 +46,7 @@ q4 = {
 },
 q5 = {
   question:"What videogame series does the character 'Kyle Katarn' appear in?",
-  CorrectAnswer:"Jedi Knight",
+  correctAnswer:"Jedi Knight",
   incorrectAnswers: {
     choiceOne: "Assassins Creed",
     choiceTwo: "BioShock",
@@ -57,7 +57,7 @@ q5 = {
 },
 q6 = {
   question:"Nathan Drake, the seemingly bullet-proof protagonist in the Uncharted series can be compared to what fictional character?",
-  CorrectAnswer:"Indiana Jones",
+  correctAnswer:"Indiana Jones",
   incorrectAnswers: {
     choiceOne: "Judge Dredd",
     choiceTwo: "Walter White",
@@ -68,18 +68,18 @@ q6 = {
 },
 q7 = {
   question:"What is the social-network equivalent of FaceBook in Grand Theft Auto 5?",
-  CorrectAnswer:"Lifeinvader",
+  correctAnswer:"Lifeinvader",
   incorrectAnswers: {
     choiceOne: "Bleeter",
     choiceTwo: "Facepage",
     choiceThree: "Origin",
   },
-  answerComment:"Pretty accurate",
+  answerComment:"Pretty accurate.",
   hint:"Bleeter is to Twitter as ******* is to Facebook in this satire",
 },
 q8 = {
   question:"Kratos, the tragic from the God of War series is given what nickname after accidentaly killing his family?",
-  CorrectAnswer:"Ghost of Sparta",
+  correctAnswer:"Ghost of Sparta",
   incorrectAnswers: {
     choiceOne: "God of War",
     choiceTwo: "The Lumberjack",
@@ -90,7 +90,7 @@ q8 = {
 },
 q9 = {
   question:"What is the protagonist's title given by the demons in DOOM (2016)?",
-  CorrectAnswer:"DOOM Slayer",
+  correctAnswer:"DOOM Slayer",
   incorrectAnswers: {
     choiceOne: "DOOM Guy",
     choiceTwo: "Doomba",
@@ -101,7 +101,7 @@ q9 = {
 },
 q10 = {
   question:"In the game Minecraft, what is the male players default name?",
-  CorrectAnswer:"Steve",
+  correctAnswer:"Steve",
   incorrectAnswers: {
     choiceOne: "Stinky Pete",
     choiceTwo: "Brad",
@@ -111,6 +111,8 @@ q10 = {
   hint:"You should try substituting Stevia for sugar in your tea!",
 }]
 console.log(qArr)
+var number = 15;
+var intervalId;
 //Hides radio buttons until BEGIN button pressed
 $(document).ready(function() {
   $('.gameBegin').hide();
@@ -119,13 +121,56 @@ $(document).ready(function() {
 $('#btn').click(function() {
   $('#start').hide();
   $('.gameBegin').show();
+  shuffle(qArr);
+  $('#question').text(qArr[0].question);
+  $('#a').text(qArr[0].incorrectAnswers.choiceOne);
+  $('#b').text(qArr[0].incorrectAnswers.choiceTwo);
+  $('#c').text(qArr[0].correctAnswer);
+  $('#d').text(qArr[0].incorrectAnswers.choiceThree); 
   run();
-  //master set timeout function for total game duration (10 questions @ :30 each + 10 answer reveals at :10 each, at the end this will trigger reset function total timer=7:40)
+  setTimeout(function(){
+    $('#a, #b, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[0].answerComment)
+    stop();
+  }, 15000)
+  setTimeout(function(){
+  $('#question').text(qArr[1].question);
+  $('#c').text(qArr[1].incorrectAnswers.choiceOne);
+  $('#b').text(qArr[1].incorrectAnswers.choiceTwo);
+  $('#a').text(qArr[1].correctAnswer);
+  $('#d').text(qArr[1].incorrectAnswers.choiceThree);
+  $('#a, #b, #d').removeClass('text-danger')
+  $('#correctAnswer').text('')
+  $('#timer').text(':15')
+  run();
+  }, 18000)
+  setTimeout(function(){
+    $('#c, #b, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[1].answerComment)
+    stop();
+  }, 33000)
+  setTimeout(function(){
+    $('#question').text(qArr[2].question);
+    $('#c').text(qArr[2].incorrectAnswers.choiceOne);
+    $('#a').text(qArr[2].incorrectAnswers.choiceTwo);
+    $('#b').text(qArr[2].correctAnswer);
+    $('#d').text(qArr[2].incorrectAnswers.choiceThree);
+    $('#c, #b, #d').removeClass('text-danger')
+    $('#correctAnswer').text('')
+    $('#timer').text(':15')
+    run();
+    }, 36000)
+  setTimeout(function(){
+    $('#c, #a, #d').addClass('text-danger')
+    $('#correctAnswer').text(qArr[2].answerComment)
+    stop();
+  }, 51000)
+  
+  //master set timeout function for total game duration 
 })
 
 //Create timer that will count down from 30 and push to scoreboard
-var number = 30;
-var intervalId;
+
 
 function decrement(){
   number--;
@@ -142,8 +187,13 @@ function run(){
 }
 function stop(){
   clearInterval(intervalId);
+  number=15
+  $("#timer").text(':00')
 }
-
+function shuffle(qArr) {
+    for(var j, x, i = qArr.length; i; j = parseInt(Math.random() * i), x = qArr[--i], qArr[i] = qArr[j], qArr[j] = x);
+    return qArr;
+}
 //Create a win/loss tracker and determine what percent of answers correct to be determined a win v loss
 
 //Create reset that populates start screen, but keeps win/loss data presented on screen
