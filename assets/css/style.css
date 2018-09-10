@@ -19,13 +19,34 @@ form {
     right: 0px;
     bottom: 4px;
 }
-
+.ms-icon-2 {
+    float: right;
+    position: absolute; 
+    right: 0px;
+    bottom: 6px;
+}
+.ms-icon-3 {
+    height: 12px;
+    width: 17px;
+    float: left;
+    position: absolute;
+    bottom: 12px;
+    left: 5px;
+}
 .program {
     float: left;
     position: absolute;
     bottom: -5px;
     left: 5px;
     color: #ece9d8;
+    font-size: xx-small;
+}
+.program-2 {
+    float: left;
+    position: absolute;
+    bottom: -5px;
+    left: 25px;
+    color: #282828;
     font-size: xx-small;
 }
 
@@ -59,5 +80,6 @@ form {
     font-family: 'Press Start 2P', cursive;
     background: #282828;
     border: #ece9d8 solid 4px;
+    border-top: #ece9d8 36px solid;
     padding-bottom: 0%;
 }

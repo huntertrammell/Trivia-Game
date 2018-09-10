@@ -29,24 +29,24 @@
                     <h2 id="timer" class="card-title">:10</h2>
                     <div class="row text-center">
                         <div class="col">
-                            <h6 id="wins">Correct</h6>
+                            <h6>Correct</h6>
                         </div>
                         <div class="col">
-                            <h5 id="round">Round</h5>
+                            <h5>Round</h5>
                         </div>
                         <div class="col">
-                            <h6 id="losses">Incorrect</h6>
+                            <h6>Incorrect</h6>
                         </div>
                     </div>
                     <div class="row text-center">
                         <div class="col">
-                            <h6>0</h6>
+                            <h6 id="wins">0</h6>
                         </div>
                         <div class="col">
-                                <h5>0</h5>
+                            <h5 id="round">0</h5>
                         </div>
                         <div class="col">
-                            <h6>0</h6>
+                            <h6 id="losses">0</h6>
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,11 @@
     <div class="row">
         <div class="col">
             <div id="questionDiv" class="card text-center">
+                <div class="imgDiv">
+                    <img class="ms-icon-3" src="assets/images/cmd.png" alt="X">
+                    <p class="program-2">VIDEOGAME TRIVIA!</p>
+                    <img class="ms-icon-2" src="assets/images/icons.png" alt="X">
+                </div>
                 <div class="card-body">
                     <h5 id="question" class="card-text"></h5>
                     <div id="start">
@@ -71,10 +76,10 @@
                     </div>
                     <br>
                     <form id="answer" class="gameBegin">
-                        <input type="radio" name="answer" value="a"><span id="a"></span><br>
-                        <input type="radio" name="answer" value="b"><span id="b"></span><br>
-                        <input type="radio" name="answer" value="c"><span id="c"></span><br>
-                        <input type="radio" name="answer" value="d"><span id="d"></span><br>
+                        <input type="radio" name="answer" value="a" id="a-btn"><span id="a"></span><br>
+                        <input type="radio" name="answer" value="b" id="b-btn"><span id="b"></span><br>
+                        <input type="radio" name="answer" value="c" id="c-btn"><span id="c"></span><br>
+                        <input type="radio" name="answer" value="d" id="d-btn"><span id="d"></span><br>
                     </form>
                     <br>
                     <h6 id="correctAnswer" class="card-text"></h6>

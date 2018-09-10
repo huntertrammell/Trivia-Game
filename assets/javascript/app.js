@@ -82,7 +82,7 @@ q7 = {
   hint:"Bleeter is to Twitter as ******* is to Facebook in this satire",
 },
 q8 = {
-  question:"Kratos, the tragic from the God of War series is given what nickname after accidentaly killing his family?",
+  question:"Kratos, the tragic protagonist from the God of War series is given what nickname after accidentaly killing his family?",
   correctAnswer:"Ghost of Sparta",
   incorrectAnswers: {
     choiceOne: "God of War",
@@ -117,6 +117,9 @@ q10 = {
 console.log(qArr)
 var number = 10;
 var intervalId;
+var round = 0;
+var wins = 0;
+var losses = 0;
 //Hides radio buttons until BEGIN button pressed
 $(document).ready(function() {
   $('.gameBegin').hide();
@@ -125,6 +128,8 @@ $(document).ready(function() {
 $('#btn').click(function() {
   $('#start').hide();
   $('.gameBegin').show();
+  round++;
+  $('#round').text(round)
   shuffle(qArr);
   $('#question').text(qArr[0].question);
   $('#a').text(qArr[0].incorrectAnswers.choiceOne);
@@ -135,7 +140,7 @@ $('#btn').click(function() {
   setTimeout(function(){
     $('#a, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[0].answerComment)
-    stop();
+    stop()
   }, 10000)
   setTimeout(function(){
   $('#question').text(qArr[1].question);
@@ -147,12 +152,12 @@ $('#btn').click(function() {
   $('#correctAnswer').text('')
   $('#timer').text(':10')
   run();
-  }, 14000)
+  }, 20000)
   setTimeout(function(){
     $('#c, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[1].answerComment)
     stop();
-  }, 24000)
+  }, 30000)
   setTimeout(function(){
     $('#question').text(qArr[2].question);
     $('#c').text(qArr[2].incorrectAnswers.choiceOne);
@@ -163,12 +168,12 @@ $('#btn').click(function() {
     $('#correctAnswer').text('')
     $('#timer').text(':10')
     run();
-    }, 28000)
+    }, 40000)
   setTimeout(function(){
     $('#c, #a, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[2].answerComment)
     stop();
-  }, 38000)
+  }, 50000)
   setTimeout(function(){
     $('#question').text(qArr[3].question);
     $('#c').text(qArr[3].incorrectAnswers.choiceOne);
@@ -179,12 +184,12 @@ $('#btn').click(function() {
     $('#correctAnswer').text('')
     $('#timer').text(':10')
     run();
-    }, 42000)
+    }, 60000)
   setTimeout(function(){
     $('#c, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[3].answerComment)
     stop();
-  }, 52000)
+  }, 70000)
   setTimeout(function(){
     $('#question').text(qArr[4].question);
     $('#c').text(qArr[4].incorrectAnswers.choiceOne);
@@ -195,96 +200,16 @@ $('#btn').click(function() {
     $('#correctAnswer').text('')
     $('#timer').text(':10')
     run();
-    }, 56000)
+    }, 80000)
   setTimeout(function(){
     $('#c, #b, #a').addClass('text-danger')
     $('#correctAnswer').text(qArr[4].answerComment)
     stop();
-  }, 66000)
-  setTimeout(function(){
-    $('#question').text(qArr[5].question);
-    $('#c').text(qArr[5].incorrectAnswers.choiceOne);
-    $('#b').text(qArr[5].incorrectAnswers.choiceTwo);
-    $('#d').text(qArr[5].correctAnswer);
-    $('#a').text(qArr[5].incorrectAnswers.choiceThree);
-    $('#c, #b, #a').removeClass('text-danger')
-    $('#correctAnswer').text('')
-    $('#timer').text(':10')
-    run();
-    }, 70000)
-  setTimeout(function(){
-    $('#c, #b, #a').addClass('text-danger')
-    $('#correctAnswer').text(qArr[5].answerComment)
-    stop();
-  }, 80000)
-  setTimeout(function(){
-    $('#question').text(qArr[6].question);
-    $('#c').text(qArr[6].incorrectAnswers.choiceOne);
-    $('#b').text(qArr[6].incorrectAnswers.choiceTwo);
-    $('#a').text(qArr[6].correctAnswer);
-    $('#d').text(qArr[6].incorrectAnswers.choiceThree);
-    $('#c, #b, #a').removeClass('text-danger')
-    $('#correctAnswer').text('')
-    $('#timer').text(':10')
-    run();
-    }, 84000)
-  setTimeout(function(){
-    $('#c, #b, #d').addClass('text-danger')
-    $('#correctAnswer').text(qArr[6].answerComment)
-    stop();
-  }, 94000)
-  setTimeout(function(){
-    $('#question').text(qArr[7].question);
-    $('#a').text(qArr[7].incorrectAnswers.choiceOne);
-    $('#b').text(qArr[7].incorrectAnswers.choiceTwo);
-    $('#c').text(qArr[7].correctAnswer);
-    $('#d').text(qArr[7].incorrectAnswers.choiceThree);
-    $('#c, #b, #d').removeClass('text-danger')
-    $('#correctAnswer').text('')
-    $('#timer').text(':10')
-    run();
-    }, 98000)
-  setTimeout(function(){
-    $('#a, #b, #d').addClass('text-danger')
-    $('#correctAnswer').text(qArr[7].answerComment)
-    stop();
-  }, 108000)
-  setTimeout(function(){
-    $('#question').text(qArr[8].question);
-    $('#c').text(qArr[8].incorrectAnswers.choiceOne);
-    $('#a').text(qArr[8].incorrectAnswers.choiceTwo);
-    $('#b').text(qArr[8].correctAnswer);
-    $('#d').text(qArr[8].incorrectAnswers.choiceThree);
-    $('#a, #b, #d').removeClass('text-danger')
-    $('#correctAnswer').text('')
-    $('#timer').text(':10')
-    run();
-    }, 112000)
-  setTimeout(function(){
-    $('#c, #a, #d').addClass('text-danger')
-    $('#correctAnswer').text(qArr[8].answerComment)
-    stop();
-  }, 122000)
-  setTimeout(function(){
-    $('#question').text(qArr[9].question);
-    $('#c').text(qArr[9].incorrectAnswers.choiceOne);
-    $('#a').text(qArr[9].incorrectAnswers.choiceTwo);
-    $('#d').text(qArr[9].correctAnswer);
-    $('#b').text(qArr[9].incorrectAnswers.choiceThree);
-    $('#a, #c, #d').removeClass('text-danger')
-    $('#correctAnswer').text('')
-    $('#timer').text(':10')
-    run();
-    }, 124000)
-  setTimeout(function(){
-    $('#c, #a, #b').addClass('text-danger')
-    $('#correctAnswer').text(qArr[9].answerComment)
-    stop();
-  }, 134000)
+  }, 90000)
   //master set timeout function for total game duration 
   setTimeout(function(){
     reset()
-  }, 144000)
+  }, 100000)
 
 })
 
