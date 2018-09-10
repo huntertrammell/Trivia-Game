@@ -13,7 +13,11 @@ $(document).ready(function() {
   $('.gameBegin').hide();
 })
 //hides intro and populates buttons on screen
-
+$('#btn').click(function() {
+  $('#start').hide();
+  $('.gameBegin').show();
+  run();
+})
 //Create ajax function to get question and formulate answers
 //https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
 $.ajax({
@@ -32,16 +36,6 @@ $.ajax({
         for(var j, x, i = choices.length; i; j = parseInt(Math.random() * i), x = choices[--i], choices[i] = choices[j], choices[j] = x);
         return choices;
     }
-    $('#btn').click(function() {
-      $('#start').hide();
-      $('.gameBegin').show();
-      $('#question').text(question);
-      $('#a').text(choices[0]);
-      $('#b').text(choices[1]);
-      $('#c').text(choices[2]);
-      $('#b').text(choices[3]);
-      run();
-    })
     //need to review AJAX issues, will create rest of game using place holder text then swap out with AJAX once done
    /* $('#question').text(question);
     $('#a').text(choices[0]);
@@ -49,16 +43,7 @@ $.ajax({
     $('#c').text(choices[2]);
     $('#b').text(choices[3]); */
   })
-//trying to get data to load from API and generate in box
-/*function apiLoader(){
-  $('.gameBegin').show();
-  $('#question').text(question);
-  $('#a').text(choices[0]);
-  $('#b').text(choices[1]);
-  $('#c').text(choices[2]);
-  $('#b').text(choices[3]);
-  run();
-}*/
+  
 
 //Create timer that will determine how long a question can be present before showing answer.
 var number = 30;
