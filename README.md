@@ -1,12 +1,12 @@
 # Trivia-Game
-A timed trivia game that will provide a set amount of questions for the user to answer within specified time frame. The purpose of this game is to show how I can handle using API's, jQuery DOM manipulation, setTimeout() events in JavaScript. The page will keep track of wins v. losses without refreshing the page.
+A timed trivia game that will provide a set amount of questions for the user to answer within specified time frame. The purpose of this game is to show how I can handle using API's, jQuery DOM manipulation, setTimeout() events in JavaScript. The page will keep track of wins v. losses & round without refreshing the page.
 
 To begin player will select `BEGIN` and has to answer a set amount of questions within the time frame specified on the `scoreboard` card.
 
 Once timer runs out, the choice that is selected will be taken as user input.
 
     If Correct/Incorrect, user will be greeted with a win/loss message and the answer will be shown. 
-    A variable will hold the score until end of game and reveal in a stats summary with option to play again.
+    A variable will update scoreboard based on user input
 
 Some assets used in this project have been modified from their original version to fit this application. The rights reside with the respective artists.
 
