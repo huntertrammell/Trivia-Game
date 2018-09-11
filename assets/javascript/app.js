@@ -300,6 +300,7 @@ function reset(){
     $('.gameBegin').hide()
     $('#start').show()
     $('.reload').hide();
+    $('#bsod').attr('src', '')
     $('#qcounter').text('VIDEOGAME TRIVIA!')
     }, 7000)
     
@@ -316,27 +317,28 @@ function decrement(){
 }
 function decrement2(){
   num2--;
-  $(".bsod").text(`Your system will reboot in: ${num2}`);
+  $(".bsod").text(`Your game will reload in: ${num2}`);
   if (num2 === 0) {
     $(".bsod").text(`Initializing Startup...`)
     stop();
   }
   if (num2 === 4){
-  $(".bsod").text(`Your system will reboot in: 5...${num2}`)
+  $(".bsod").text(`Your game will reload in: 5...${num2}`)
   }
   if (num2 === 3){
-    $(".bsod").text(`Your system will reboot in: 5...4...${num2}`)
+    $(".bsod").text(`Your game will reload in: 5...4...${num2}`)
   }
   if (num2 === 2){
-    $(".bsod").text(`Your system will reboot in: 5...4...3...${num2}`)
+    $(".bsod").text(`Your game will reload in: 5...4...3...${num2}`)
   }
   if (num2 === 1){
-    $(".bsod").text(`Your system will reboot in: 5...4...3...2...${num2}`)
+    $(".bsod").text(`Your game will reload in: 5...4...3...2...${num2}`)
   }
   
 }
 function run2(){
   $('.reload').show();
+  $('#bsod').attr('src', 'assets/images/BSOD.png')
   intervalId = setInterval(decrement2, 1000);
 }
 function run(){
@@ -351,9 +353,6 @@ function shuffle(qArr) {
     for(var j, x, i = qArr.length; i; j = parseInt(Math.random() * i), x = qArr[--i], qArr[i] = qArr[j], qArr[j] = x);
     return qArr;
 }
-//Create a win/loss tracker and determine what percent of answers correct to be determined a win v loss
-
-//Create reset that populates start screen, but keeps win/loss data presented on screen
 
 /*ICEBOX - 
 1-put Clippy in bottom corner and if clicked provide question hint.
