@@ -114,6 +114,7 @@ q10 = {
   answerComment:"Although the character was created to be genderless, the developer gave the 'minecraft guy' the default name steve as a joke",
   hint:"You should try substituting Stevia for sugar in your tea!",
 }]
+
 console.log(qArr)
 var number = 10;
 var num2 = 6;
@@ -130,12 +131,12 @@ $(document).ready(function() {
 $('#btn').click(function() {
   $('#start').hide();
   $('.gameBegin').show();
+  shuffle(qArr)
   round++;
   $('#round').text(round)
   $('#qcounter').text('QUESTION #1')
-  shuffle(qArr);
-  $('#a, #b, #c, #d').removeClass('active')
-  $('#question').text(qArr[0].question);
+  run()
+  /*$('#question').text(qArr[0].question);
   $('#a').text(qArr[0].incorrectAnswers.choiceOne);
   $('#b').text(qArr[0].incorrectAnswers.choiceTwo);
   $('#c').text(qArr[0].correctAnswer);
@@ -281,14 +282,31 @@ $('#btn').click(function() {
   //master set timeout function for total game duration 
   setTimeout(function(){
     reset()
-  }, 100000)
+  }, 100000)*/
 
 })
-
+var arrayPosition = 0;
 //functions
 $("li").click(function() {
-  $("li").removeClass("active");
-  $(this).addClass("active");
+  console.log("OTH CLICK EVENT")
+  $(this).addClass("clicked");
+  console.log("THIS TEXT: ", $(this).text())
+  console.log("qArr0: ", qArr[arrayPosition].correctAnswer)
+  if ($(this).text() == qArr[arrayPosition].correctAnswer) {
+    $(this).addClass('correct')
+    console.log("INSIDE LI CLICK");
+    if ($(this).hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } 
+  } else {
+      console.log("you lose: ", losses)
+      losses++
+      $('#losses').text(losses)
+  }
+  if ($(this).hasClass('clicked')) {
+    stop()
+  }
 });
 
 function reset(){
@@ -342,16 +360,58 @@ function run2(){
   intervalId = setInterval(decrement2, 1000);
 }
 function run(){
+  //var qArr=[q1.question, q2.question, q3.question, q4.question, q5.question, q6.question, q7.question, q8.question, q9.question, q10.question]
+  clearInterval(intervalId)
+  number = 10
   intervalId = setInterval(decrement, 1000);
+  var ansArr = [qArr[arrayPosition].correctAnswer, qArr[arrayPosition].incorrectAnswers.choiceOne, qArr[arrayPosition].incorrectAnswers.choiceTwo, qArr[arrayPosition].incorrectAnswers.choiceThree,]
+  shuffle(ansArr)
+  $('#question').text(qArr[arrayPosition].question)
+  $('#a').text(ansArr[0])
+  $('#b').text(ansArr[1])
+  $('#c').text(ansArr[2])
+  $('#d').text(ansArr[3])
 }
 function stop(){
   clearInterval(intervalId);
-  number=10
-  $("#timer").text(':00')
+  $("#timer").text(`:${number}`);
+  if (number === 0) {
+    $("#timer").text(`:0${number}`)
+    $('#losses').text(losses)
+    stop();
+  }
+  if (number < 10) {
+    $("#timer").text(`:0${number}`);
+  }
+  $('#a').text('')
+  $('#b').text('')
+  $('#c').text('')
+  $('#d').text('')
+  $('#answerIs').text('The answer is:')
+  $('#correctAnswer').text(qArr[arrayPosition].correctAnswer)
+  $("#timer").text(`:${number}`)
+  if (wins++) {
+    $('#answerComment').text('You Guessed Correct!')
+  } else {
+    $('#answerComment').text('You Guessed Incorrect!')
+  }
+  setTimeout(function(){
+    $("#timer").text(`:10`)
+    $('#answerIs').text('')
+    $('#correctAnswer').text('')
+    $('#answerComment').text('')
+    arrayPosition++
+    run()
+  }, 5000)
+  
 }
 function shuffle(qArr) {
     for(var j, x, i = qArr.length; i; j = parseInt(Math.random() * i), x = qArr[--i], qArr[i] = qArr[j], qArr[j] = x);
     return qArr;
+}
+function shuffle(ansArr) {
+  for(var j, x, i = ansArr.length; i; j = parseInt(Math.random() * i), x = ansArr[--i], ansArr[i] = ansArr[j], ansArr[j] = x);
+  return ansArr;
 }
 
 /*ICEBOX - 
