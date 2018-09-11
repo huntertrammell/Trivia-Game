@@ -115,7 +115,6 @@ q10 = {
   hint:"You should try substituting Stevia for sugar in your tea!",
 }]
 
-console.log(qArr)
 var number = 10;
 var intervalId;
 var round = 0;
@@ -123,22 +122,25 @@ var wins = 0;
 var losses = 0;
 var arrayPosition = 0;
 var questionNum = 1;
-//Hides radio buttons until BEGIN button pressed
+//hides some items until next function
 $(document).ready(function() {
   $('.gameBegin').hide();
-  $('.reload').hide();
 })
-//Game start function
+//on load Game start function
 $('#btn').click(function() {
   $('#start').hide();
+  $('#prompt').text('');
+  $('#question').show();
+  $('li').show();
   $('.gameBegin').show();
+  qArr = qArr
   shuffle(qArr)
   round++;
   $('#round').text(round)
   $('#qcounter').text(`QUESTION #${questionNum}`)
   run()
 })
-//trivia game
+//what happens when user makes choice
 $("li").click(function() {
   console.log("OTH CLICK EVENT")
   $(this).addClass("clicked");
@@ -181,7 +183,6 @@ function decrement(){
 }
 //Timer and data function
 function run(){
-  //var qArr=[q1.question, q2.question, q3.question, q4.question, q5.question, q6.question, q7.question, q8.question, q9.question, q10.question]
   clearInterval(intervalId)
   $('#qcounter').text(`QUESTION #${questionNum}`)
   number = 10
@@ -193,8 +194,9 @@ function run(){
   $('#b').text(ansArr[1])
   $('#c').text(ansArr[2])
   $('#d').text(ansArr[3])
+  reset()
 }
-//Timer pause and game restart
+//Timer pause and question regen
 function stop(){
   clearInterval(intervalId);
   $("#timer").text(`:0${number}`);
@@ -224,12 +226,33 @@ function stop(){
   
 }
 
-//Array Shuffler
+//Array Shufflers
 function shuffle(qArr) {
-    for(var j, x, i = qArr.length; i; j = parseInt(Math.random() * i), x = qArr[--i], qArr[i] = qArr[j], qArr[j] = x);
-    return qArr;
+  for(var j, x, i = qArr.length; i; j = parseInt(Math.random() * i), x = qArr[--i], qArr[i] = qArr[j], qArr[j] = x);
+  return qArr;
 }
 function shuffle(ansArr) {
   for(var j, x, i = ansArr.length; i; j = parseInt(Math.random() * i), x = ansArr[--i], ansArr[i] = ansArr[j], ansArr[j] = x);
   return ansArr;
+}
+
+//game reset function
+function reset() {
+  if (questionNum === 6) {
+    clearInterval(intervalId);
+    shuffle(qArr)
+    $('#qcounter').text(`VIDEOGAME TRIVIA!`)
+    $("#timer").text(`:10`);
+    $('#start').show();
+    $('#prompt').text('Play Again?');
+    $('#reload').hide();
+    $('#question').hide();
+    $('li').hide();
+    arrayPosition = 0;
+    questionNum = 1;
+    wins = 0;
+    $('#wins').text(wins)
+    losses = 0;
+    $('#losses').text(losses)
+  }
 }
