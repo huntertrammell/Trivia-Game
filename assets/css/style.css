@@ -1,3 +1,7 @@
+html {
+    cursor: -webkit-grab; cursor: grab;
+}
+
 body {
     background: url(../images/windows-xp-bliss-4k-lu-2048x1152.jpg);
 }
@@ -5,6 +9,12 @@ body {
 form {
     list-style-type: none;
     text-align: left;
+}
+
+ul {
+    list-style: none;
+    line-height: 30px;
+    font-size: 20px;
 }
 
 .imgDiv {
@@ -44,10 +54,32 @@ form {
 .program-2 {
     float: left;
     position: absolute;
-    bottom: -5px;
+    bottom: -7px;
     left: 25px;
     color: #282828;
     font-size: xx-small;
+}
+
+#bsod {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+}
+
+.bsod {
+    position: fixed;
+    z-index: 5;
+    color: #eaf4fb;
+    font-size: 25px;
+    bottom: 0;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: -2px;
+    padding-bottom: 3%;
+}
+.reload {
+    text-align: center;
 }
 
 #logo {
@@ -82,4 +114,15 @@ form {
     border: #ece9d8 solid 4px;
     border-top: #ece9d8 36px solid;
     padding-bottom: 0%;
+}
+li:hover {
+    text-shadow: 0 0 30px #33ff00;
+    color: #ece9d8;
+}
+li:active {
+    cursor: -webkit-grabbing; cursor: grabbing;
+}
+li.active {
+    text-shadow: 0 0 30px #33ff00;
+    color: #ece9d8;
 }

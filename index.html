@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VideoGame Trivia</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<div class="reload">
+<img id="bsod" src="assets/images/BSOD.png" alt="BSOD">
+<p class="bsod"></p>
+</div>
 <body class="container">
 <header class="">
     <div class="row">
@@ -61,7 +66,7 @@
             <div id="questionDiv" class="card text-center">
                 <div class="imgDiv">
                     <img class="ms-icon-3" src="assets/images/cmd.png" alt="X">
-                    <p class="program-2">VIDEOGAME TRIVIA!</p>
+                    <p id="qcounter" class="program-2">VIDEOGAME TRIVIA!</p>
                     <img class="ms-icon-2" src="assets/images/icons.png" alt="X">
                 </div>
                 <div class="card-body">
@@ -75,12 +80,12 @@
                         <button id="btn">BEGIN</button>
                     </div>
                     <br>
-                    <form id="answer" class="gameBegin">
-                        <input type="radio" name="answer" value="a" id="a-btn"><span id="a"></span><br>
-                        <input type="radio" name="answer" value="b" id="b-btn"><span id="b"></span><br>
-                        <input type="radio" name="answer" value="c" id="c-btn"><span id="c"></span><br>
-                        <input type="radio" name="answer" value="d" id="d-btn"><span id="d"></span><br>
-                    </form>
+                    <ul id="answer" class="gameBegin">
+                        <li id="a"></li>
+                        <li id="b"></li>
+                        <li id="c"></li>
+                        <li id="d"></li>
+                    </ul>
                     <br>
                     <h6 id="correctAnswer" class="card-text"></h6>
                 </div>

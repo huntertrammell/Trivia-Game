@@ -116,6 +116,7 @@ q10 = {
 }]
 console.log(qArr)
 var number = 10;
+var num2 = 6;
 var intervalId;
 var round = 0;
 var wins = 0;
@@ -123,6 +124,7 @@ var losses = 0;
 //Hides radio buttons until BEGIN button pressed
 $(document).ready(function() {
   $('.gameBegin').hide();
+  $('.reload').hide();
 })
 //Main Game function
 $('#btn').click(function() {
@@ -130,19 +132,36 @@ $('#btn').click(function() {
   $('.gameBegin').show();
   round++;
   $('#round').text(round)
+  $('#qcounter').text('QUESTION #1')
   shuffle(qArr);
+  $('#a, #b, #c, #d').removeClass('active')
   $('#question').text(qArr[0].question);
   $('#a').text(qArr[0].incorrectAnswers.choiceOne);
   $('#b').text(qArr[0].incorrectAnswers.choiceTwo);
   $('#c').text(qArr[0].correctAnswer);
-  $('#d').text(qArr[0].incorrectAnswers.choiceThree); 
+  $('#d').text(qArr[0].incorrectAnswers.choiceThree);
+  $('#c').on('click', function(){
+    $('#c').addClass('correct')})
+  $('#a, #b, #d').on('click', function(){
+    ($('#c')).removeClass('correct')
+  })
   run();
   setTimeout(function(){
+    if ($('#c').hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } else {
+      losses++
+      $('#losses').text(losses)
+    }
     $('#a, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[0].answerComment)
     stop()
   }, 10000)
   setTimeout(function(){
+  $('#qcounter').text('QUESTION #2')
+  $('#a, #b, #c, #d').removeClass('active')  
+  $('#c').removeClass('correct')
   $('#question').text(qArr[1].question);
   $('#c').text(qArr[1].incorrectAnswers.choiceOne);
   $('#b').text(qArr[1].incorrectAnswers.choiceTwo);
@@ -151,14 +170,27 @@ $('#btn').click(function() {
   $('#a, #b, #d').removeClass('text-danger')
   $('#correctAnswer').text('')
   $('#timer').text(':10')
+  $('#a').on('click', function(){
+    $('#a').addClass('correct')})
+  $('#c, #b, #d').on('click', function(){
+    ($('#a')).removeClass('correct')})
   run();
   }, 20000)
   setTimeout(function(){
+    if ($('#a').hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } else {
+      losses++
+      $('#losses').text(losses)
+    }
     $('#c, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[1].answerComment)
     stop();
   }, 30000)
   setTimeout(function(){
+    $('#qcounter').text('QUESTION #3')
+    $('#a, #b, #c, #d').removeClass('active')
     $('#question').text(qArr[2].question);
     $('#c').text(qArr[2].incorrectAnswers.choiceOne);
     $('#a').text(qArr[2].incorrectAnswers.choiceTwo);
@@ -167,14 +199,28 @@ $('#btn').click(function() {
     $('#c, #b, #d').removeClass('text-danger')
     $('#correctAnswer').text('')
     $('#timer').text(':10')
+    $('#a').removeClass('correct')
+    $('#b').on('click', function(){
+      $('#b').addClass('correct')})
+    $('#c, #a, #d').on('click', function(){
+      ($('#b')).removeClass('correct')})
     run();
     }, 40000)
   setTimeout(function(){
+    if ($('#b').hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } else {
+      losses++
+      $('#losses').text(losses)
+    }
     $('#c, #a, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[2].answerComment)
     stop();
   }, 50000)
   setTimeout(function(){
+    $('#qcounter').text('QUESTION #4')
+    $('#a, #b, #c, #d').removeClass('active')
     $('#question').text(qArr[3].question);
     $('#c').text(qArr[3].incorrectAnswers.choiceOne);
     $('#b').text(qArr[3].incorrectAnswers.choiceTwo);
@@ -183,14 +229,28 @@ $('#btn').click(function() {
     $('#c, #a, #d').removeClass('text-danger')
     $('#correctAnswer').text('')
     $('#timer').text(':10')
+    $('#b').removeClass('correct')
+    $('#a').on('click', function(){
+      $('#a').addClass('correct')})
+    $('#c, #b, #d').on('click', function(){
+      ($('#a')).removeClass('correct')})
     run();
     }, 60000)
   setTimeout(function(){
     $('#c, #b, #d').addClass('text-danger')
     $('#correctAnswer').text(qArr[3].answerComment)
     stop();
+    if ($('#a').hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } else {
+      losses++
+      $('#losses').text(losses)
+    }
   }, 70000)
   setTimeout(function(){
+    $('#qcounter').text('QUESTION #5')
+    $('#a, #b, #c, #d').removeClass('active')
     $('#question').text(qArr[4].question);
     $('#c').text(qArr[4].incorrectAnswers.choiceOne);
     $('#b').text(qArr[4].incorrectAnswers.choiceTwo);
@@ -199,11 +259,23 @@ $('#btn').click(function() {
     $('#c, #b, #d').removeClass('text-danger')
     $('#correctAnswer').text('')
     $('#timer').text(':10')
+    $('#a').removeClass('correct')
+    $('#d').on('click', function(){
+      $('#d').addClass('correct')})
+    $('#c, #b, #a').on('click', function(){
+      ($('#d')).removeClass('correct')})
     run();
     }, 80000)
   setTimeout(function(){
     $('#c, #b, #a').addClass('text-danger')
     $('#correctAnswer').text(qArr[4].answerComment)
+    if ($('#d').hasClass('correct')){
+      wins++
+      $('#wins').text(wins)
+    } else {
+      losses++
+      $('#losses').text(losses)
+    }
     stop();
   }, 90000)
   //master set timeout function for total game duration 
@@ -214,12 +286,23 @@ $('#btn').click(function() {
 })
 
 //functions
+$("li").click(function() {
+  $("li").removeClass("active");
+  $(this).addClass("active");
+});
+
 function reset(){
-  $('#a, #b, #c, #d').removeClass('text-danger')
-  $('#question').text('')
-  $('#correctAnswer').text('')
-  $('.gameBegin').hide()
-  $('#start').show()
+    run2()
+    setTimeout(function(){
+    $('#a, #b, #c, #d').removeClass('text-danger')
+    $('#question').text('')
+    $('#correctAnswer').text('')
+    $('.gameBegin').hide()
+    $('#start').show()
+    $('.reload').hide();
+    $('#qcounter').text('VIDEOGAME TRIVIA!')
+    }, 7000)
+    
 }
 function decrement(){
   number--;
@@ -230,6 +313,31 @@ function decrement(){
   if (number < 10) {
     $("#timer").text(`:0${number}`);
   }
+}
+function decrement2(){
+  num2--;
+  $(".bsod").text(`Your system will reboot in: ${num2}`);
+  if (num2 === 0) {
+    $(".bsod").text(`Initializing Startup...`)
+    stop();
+  }
+  if (num2 === 4){
+  $(".bsod").text(`Your system will reboot in: 5...${num2}`)
+  }
+  if (num2 === 3){
+    $(".bsod").text(`Your system will reboot in: 5...4...${num2}`)
+  }
+  if (num2 === 2){
+    $(".bsod").text(`Your system will reboot in: 5...4...3...${num2}`)
+  }
+  if (num2 === 1){
+    $(".bsod").text(`Your system will reboot in: 5...4...3...2...${num2}`)
+  }
+  
+}
+function run2(){
+  $('.reload').show();
+  intervalId = setInterval(decrement2, 1000);
 }
 function run(){
   intervalId = setInterval(decrement, 1000);
