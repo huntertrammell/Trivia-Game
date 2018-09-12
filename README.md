@@ -1,7 +1,7 @@
 # Trivia-Game
 A timed trivia game that will provide a set amount of questions for the user to answer within specified time frame. The purpose of this game is to show how I can handle using jQuery DOM manipulation and setTimeout() events in JavaScript. The page will keep track of wins v. losses & round without refreshing the page.
 
-The trivia questions relate to videogames and the UI is based on a Windows XP desktop. (original cut had a BSOD pop up at the end during the game reset, but it tended to scare more than amuse so it was omitted.)
+The trivia questions relate to videogames and the UI is based on a Windows XP desktop, original cut had a BSOD pop up at the end during the game reset, but it tended to scare more than amuse so it was omitted.
 
 To begin player will select `BEGIN` and has to answer a set amount of questions within the time frame specified on the `scoreboard` card.
 
