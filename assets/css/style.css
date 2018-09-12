@@ -60,26 +60,13 @@ ul {
     font-size: xx-small;
 }
 
-#bsod {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 5;
-    left: 0;
-}
-
-.bsod {
-    position: fixed;
-    z-index: 5;
-    color: #eaf4fb;
-    font-size: 25px;
-    bottom: 0;
-    font-family: 'Roboto Mono', monospace;
-    letter-spacing: -2px;
-    padding-bottom: 3%;
-}
 .reload {
     text-align: center;
+}
+
+.github {
+    float: left;
+    padding: 20px;
 }
 
 #logo {
@@ -88,6 +75,10 @@ ul {
     padding-bottom: 2%;
     position: relative;
     z-index: 2;
+}
+
+#answerComment {
+    font-size: small;
 }
 
 #scoreDiv {

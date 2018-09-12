@@ -12,8 +12,6 @@ q1 = {
   },
   //provides answer explanation or comment
   answerComment:"You'd think she would have learned after her first run in with everyone's favorite spikey turtle-dragon",
-  //shown when Clippy is clicked during game
-  hint:"WAAAA! - Waluigi's response when he heard he wasnt the answer",
 },
 q2 = {
   question:"What PC game release date was delayed due to a hidden picture of a developers buttocks?",
@@ -24,7 +22,6 @@ q2 = {
     choiceThree: "PUBG",
   },
   answerComment:"This developer wasn't wearing his 'Halo'!",
-  hint:"This 'cheeky' dev traded his halo in for some horns",
 },
 q3 = {
   question:"In what language to the Sim's speak in?",
@@ -35,7 +32,6 @@ q3 = {
     choiceThree: "Simpsons",
   },
   answerComment:"Simlish is a 'language' made up of gibberish words that can be translated to phrases",
-  hint:"'Ahhhh Molombia' - Roughly translated to 'This one I don't know'",
 },
 q4 = {
   question:"In the game series 'Mass Effect', what lovable Turian seems to always be too busy to talk?",
@@ -46,7 +42,6 @@ q4 = {
     choiceThree: "Blasto",
   },
   answerComment:"Now I'd love to chat, but this gun really needs calibrating.",
-  hint:"Can it wait? I'm in the middle of some calibrations",
 },
 q5 = {
   question:"What videogame series does the character 'Kyle Katarn' appear in?",
@@ -57,7 +52,6 @@ q5 = {
     choiceThree: "Elder Scrolls",
   },
   answerComment:"Kyle Katarn is a fictional character in the Star Wars expanded universe, who appears in the five video games of the Jedi Knight series. Lets make him canon already Disney!",
-  hint:"This futuristic space-hero's name is Kyle?",
 },
 q6 = {
   question:"Nathan Drake, the seemingly bullet-proof protagonist in the Uncharted series can be compared to what fictional character?",
@@ -68,7 +62,6 @@ q6 = {
     choiceThree: "John Wick",
   },
   answerComment:"These two treasure plotting hero's share a lot of similarities, give Indiana a parkour lesson and a luck charm and you've got yourself a doppleganger",
-  hint:"Snakes? I hate snakes!",
 },
 q7 = {
   question:"What is the social-network equivalent of FaceBook in Grand Theft Auto 5?",
@@ -79,7 +72,6 @@ q7 = {
     choiceThree: "Origin",
   },
   answerComment:"Pretty accurate.",
-  hint:"Bleeter is to Twitter as ******* is to Facebook in this satire",
 },
 q8 = {
   question:"Kratos, the tragic protagonist from the God of War series is given what nickname after accidentaly killing his family?",
@@ -90,7 +82,6 @@ q8 = {
     choiceThree: "The Chosen One",
   },
   answerComment:"Kratos was tricked into killing his family by the God of War Ares, he became the Ghost of Sparta and inherited the title God of War after killing Ares",
-  hint:"This spartan warrior is put a slippery slope after killing Ares and almost destroys the planet.",
 },
 q9 = {
   question:"What is the protagonist's title given by the demons in DOOM (2016)?",
@@ -101,7 +92,6 @@ q9 = {
     choiceThree: "Doctor Doom",
   },
   answerComment:"A bit more intimidating than DOOM Guy. On a side note, you should google Doomba - your welcome",
-  hint:"Arguments could be made on DOOM Slayer v. DOOM Guy. If you were a demon, what would you call the someone whose purpose is to kill demons?",
 },
 q10 = {
   question:"In the game Minecraft, what is the male players default name?",
@@ -112,7 +102,6 @@ q10 = {
     choiceThree: "Alex",
   },
   answerComment:"Although the character was created to be genderless, the developer gave the 'minecraft guy' the default name steve as a joke",
-  hint:"You should try substituting Stevia for sugar in your tea!",
 }]
 
 var number = 10;
@@ -154,15 +143,15 @@ $("li").click(function() {
     if ($(this).hasClass('correct')){
       wins++
       $('#wins').text(wins)
-      $('#answerComment').text('You are correct!')
+      $('#answerComment').text(qArr[arrayPosition].answerComment)
       $('#youGuessed').text(`You guessed "${userGuess}"`)
     }
   } else {
       console.log("you lose: ", losses)
       losses++
       $('#losses').text(losses)
-      $('#answerComment').text('You are wrong!')
-      $('#youGuessed, #answerComment').addClass("text-danger")
+      $('#answerComment').text(qArr[arrayPosition].answerComment)
+      $('#youGuessed').addClass("text-danger")
       $('#youGuessed').text(`You guessed "${userGuess}"`)
   }
   if ($(this).hasClass('clicked')) {
@@ -226,7 +215,7 @@ function stop(){
     $('#answerComment').text('')
     $('#userAnswer').text('')
     $('#youGuessed').text('')
-    $('#youGuessed, #answerComment').removeClass("text-danger")
+    $('#youGuessed').removeClass("text-danger")
     arrayPosition++
     questionNum++
     run()
