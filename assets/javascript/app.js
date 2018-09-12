@@ -122,6 +122,7 @@ var wins = 0;
 var losses = 0;
 var arrayPosition = 0;
 var questionNum = 1;
+var userGuess = "";
 //hides some items until next function
 $(document).ready(function() {
   $('.gameBegin').hide();
@@ -144,6 +145,7 @@ $('#btn').click(function() {
 $("li").click(function() {
   console.log("OTH CLICK EVENT")
   $(this).addClass("clicked");
+  userGuess = $(this).text();
   console.log("THIS TEXT: ", $(this).text())
   console.log("qArr0: ", qArr[arrayPosition].correctAnswer)
   if ($(this).text() == qArr[arrayPosition].correctAnswer) {
@@ -152,13 +154,16 @@ $("li").click(function() {
     if ($(this).hasClass('correct')){
       wins++
       $('#wins').text(wins)
-      $('#answerComment').text('You Guessed Correct!')
+      $('#answerComment').text('You are correct!')
+      $('#youGuessed').text(`You guessed "${userGuess}"`)
     }
   } else {
       console.log("you lose: ", losses)
       losses++
       $('#losses').text(losses)
-      $('#answerComment').text('You Guessed Incorrect!')
+      $('#answerComment').text('You are wrong!')
+      $('#youGuessed, #answerComment').addClass("text-danger")
+      $('#youGuessed').text(`You guessed "${userGuess}"`)
   }
   if ($(this).hasClass('clicked')) {
     stop()
@@ -219,6 +224,9 @@ function stop(){
     $('#answerIs').text('')
     $('#correctAnswer').text('')
     $('#answerComment').text('')
+    $('#userAnswer').text('')
+    $('#youGuessed').text('')
+    $('#youGuessed, #answerComment').removeClass("text-danger")
     arrayPosition++
     questionNum++
     run()
